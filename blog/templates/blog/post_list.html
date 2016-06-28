@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+ 
+{% block content %}
+<div class="container">
+ 	<div class="row">
+ 		{% for post in posts %}
+ 		<div class="col-md-6">
+
+				
+				 <a class="btn btn-primary" href="{% url 'post_detail' pk=post.pk %}">
+				 <span class="glyphicon glyphicon-pencil"></span>VIEW</a>
+
+				 <a class="btn btn-info" href="{% url 'post_edit' pk=post.pk %}">
+				 <span class="glyphicon glyphicon-pencil"></span> EDIT</a>
+
+				 <a class="btn btn-warning" href="{% url 'post_delete' pk=post.pk %}">
+				 <span class="glyphicon glyphicon-delete"></span> DELETE</a>
+
+				 <h2>{{post.id}} -{{ post.title }} </h2>
+				 <p></p><p></p>
+		</div>
+		{% endfor %}
+ 
+ 	</div>
+ </div>
+{% endblock %}
